@@ -12,7 +12,6 @@ from starlette.staticfiles import StaticFiles
 from fastai.callbacks import *
 import shutil
 from PIL import Image
-import cv2
 import numpy as np
 
 export_file_url = 'https://www.dropbox.com/s/qjs4v9dqgh1dpsu/export_lm_first-2.pkl?dl=1'
