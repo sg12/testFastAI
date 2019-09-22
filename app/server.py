@@ -9,11 +9,6 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-from fastai.callbacks import *
-import shutil
-from PIL import Image
-import numpy as np
-
 export_file_url = 'https://www.dropbox.com/s/qjs4v9dqgh1dpsu/export_lm_first-2.pkl?dl=1'
 export_file_name = 'export_lm_first-2.pkl'
 
@@ -65,7 +60,7 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    prediction = learn.predict(img)[0]
+    prediction = learn.predict(img)[1]
     return JSONResponse({'result': str(prediction)})
 
 
