@@ -9,6 +9,9 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
+from PIL import Image
+from matplotlib.pyplot import imshow
+
 export_file_url = 'https://www.dropbox.com/s/qjs4v9dqgh1dpsu/export_lm_first-2.pkl?dl=1'
 export_file_name = 'export_lm_first-2.pkl'
 
