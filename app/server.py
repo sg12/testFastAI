@@ -11,6 +11,7 @@ from starlette.staticfiles import StaticFiles
 
 from PIL import Image
 from matplotlib.pyplot import imshow
+import numpy as np
 
 export_file_url = 'https://www.dropbox.com/s/qjs4v9dqgh1dpsu/export_lm_first-2.pkl?dl=1'
 export_file_name = 'export_lm_first-2.pkl'
@@ -65,7 +66,7 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[1]
     arr = np.asarray(prediction[1][0])
-    #imgMask = Image.fromarray(arr,'L')
+    imgMask = Image.fromarray(arr,'L')
     return JSONResponse({'result': str(prediction)})
 
 
