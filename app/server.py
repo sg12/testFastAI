@@ -65,7 +65,7 @@ async def analyze(request):
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[1]
-    arr = np.asarray(prediction[1][0])
+    arr = np.asarray(prediction[0])
     imgMask = Image.fromarray(arr,'L')
     return JSONResponse({'result': str(prediction)})
 
