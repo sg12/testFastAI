@@ -1,7 +1,25 @@
 var el = x => document.getElementById(x);
+var imgData={"data":[100,8,10,12,100,100,14,16,14,100,100,18,18,14,100,0,80,0,80,0,13,15,80,18,0],"width":"5","height":"5"};
+var wid=imgData["width"],hgh=imgData["height"],data=imgData["data"];
+
+function draw(){
+  var index=-1;
+  var img=document.getElementById("img");
+  img.innerHTML="";
+  for(var i=0;i<hgh;i++)
+  {
+    for(var j=0;j<wid;j++)
+    {
+      index++;
+      var pix=data[index];
+      img.innerHTML+="<span class='pixel' style='background:rgb("+pix+","+pix+","+pix+");position:absolute;top:"+(i*5)+"px;left:"+(j*5)+"px;'></span>";
+    }
+  }
+}
 
 function showPicker() {
   el("file-input").click();
+  draw();
 }
 
 function showPicked(input) {
