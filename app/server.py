@@ -69,7 +69,7 @@ async def analyze(request):
     prediction = learn.predict(img)[1]
     arr = np.asarray(prediction[0])
     imgMask = Image.fromarray(arr,'L')
-    imgMask.save(path / export_file_name)
+    imgMask.save(path / temp_file_name)
     return JSONResponse({'result': str(prediction)})
 
 
