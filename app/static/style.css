@@ -62,3 +62,15 @@ button.analyze-button {
 button:focus {
     outline: 0;
 }
+
+#img{
+    display:inline-block;
+    width:auto;
+    height:auto;
+   position:relative;
+}
+.pixel{
+    width:5px;
+    height:5px;
+    display:inline-block;
+}
