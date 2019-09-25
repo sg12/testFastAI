@@ -16,6 +16,8 @@ import numpy as np
 export_file_url = 'https://www.dropbox.com/s/qjs4v9dqgh1dpsu/export_lm_first-2.pkl?dl=1'
 export_file_name = 'export_lm_first-2.pkl'
 
+temp_file_name = 'temp_mask.png'
+
 classes = ['0', '1']
 path = Path(__file__).parent
 
@@ -67,6 +69,7 @@ async def analyze(request):
     prediction = learn.predict(img)[1]
     arr = np.asarray(prediction[0])
     imgMask = Image.fromarray(arr,'L')
+    imgMask.save(path / export_file_name)
     return JSONResponse({'result': str(prediction)})
 
 
