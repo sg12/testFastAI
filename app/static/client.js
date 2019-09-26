@@ -50,8 +50,10 @@ function analyze() {
       draw();
       el("result-label").innerHTML = `Result = ${response["result"]}`;
       var array = response["result"];
-      var array1 = array.replace('[', '');
+      array1 = array.replace('[', '');
+      var array1 = array1.replace('[', '');
       var array2 = array1.replace(']', '');
+      array2 = array2.replace(']', '');
       var arr = array2.split(" ");
       try {
         var number = parseInt(arr[0]);
@@ -60,10 +62,16 @@ function analyze() {
         alert('error 1');
       }
       try {
-        var number = parseInt(arr[10]);
+        var number = parseInt(arr[1]);
         alert(number) ;
       } catch(e) {
         alert('error 2');
+      }
+      try {
+        var number = parseInt(arr[2]);
+        alert(number) ;
+      } catch(e) {
+        alert('error 3');
       }
     }
     el("analyze-button").innerHTML = "Analyze";
