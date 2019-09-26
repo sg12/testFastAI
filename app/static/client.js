@@ -19,7 +19,7 @@ function draw(){
 
 function showPicker() {
   el("file-input").click();
-  draw();
+  
 }
 
 function showPicked(input) {
@@ -47,7 +47,14 @@ function analyze() {
   xhr.onload = function(e) {
     if (this.readyState === 4) {
       var response = JSON.parse(e.target.responseText);
+      draw();
       el("result-label").innerHTML = `Result = ${response["result"]}`;
+      var array = response["result"];
+      alert(xhr.responseText);
+      array.forEach(function(item, i, array) {
+        alert( i + ": " + item + " (массив:" + array + ")" );
+      });
+      
     }
     el("analyze-button").innerHTML = "Analyze";
   };
