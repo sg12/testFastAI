@@ -50,7 +50,8 @@ function analyze() {
       draw();
       el("result-label").innerHTML = `Result = ${response["result"]}`;
       var array = response["result"];
-      alert(array[0]);
+      var arr = array.split(" ");
+      alert(arr[0]);
     }
     el("analyze-button").innerHTML = "Analyze";
   };
