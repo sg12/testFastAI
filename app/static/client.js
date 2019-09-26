@@ -53,7 +53,18 @@ function analyze() {
       var array1 = array.replace('[', '');
       var array2 = array1.replace(']', '');
       var arr = array2.split(" ");
-      alert(arr[0] + "-" + arr[1] + "-" + arr[10]) ;
+      try {
+        var number = parseInt(arr[0]);
+        alert(number) ;
+      } catch(e) {
+        alert('error 1');
+      }
+      try {
+        var number = parseInt(arr[10]);
+        alert(number) ;
+      } catch(e) {
+        alert('error 2');
+      }
     }
     el("analyze-button").innerHTML = "Analyze";
   };
