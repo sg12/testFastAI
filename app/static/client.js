@@ -50,11 +50,7 @@ function analyze() {
       draw();
       el("result-label").innerHTML = `Result = ${response["result"]}`;
       var array = response["result"];
-      alert(array);
-      array.forEach(function(item, i, array) {
-        alert( i + ": " + item + " (массив:" + array + ")" );
-      });
-      
+      alert(array[0]);
     }
     el("analyze-button").innerHTML = "Analyze";
   };
