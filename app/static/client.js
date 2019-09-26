@@ -50,8 +50,10 @@ function analyze() {
       draw();
       el("result-label").innerHTML = `Result = ${response["result"]}`;
       var array = response["result"];
-      var arr = array.split(" ");
-      alert(arr[0]);
+      var array1 = array.replace('[', '');
+      var array2 = array1.replace(']', '');
+      var arr = array2.split(" ");
+      alert(arr[0] + "-" + arr[1] + "-" + arr[10]) ;
     }
     el("analyze-button").innerHTML = "Analyze";
   };
