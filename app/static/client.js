@@ -55,8 +55,7 @@ function analyze() {
       var array2 = array1.replace(']', '');
       array2 = array2.replace(']', '');
       var arr = array2.split(" ");
-      alert(arr.length);
-      
+      alert(array.length + '-' + array2.length + '-' + arr.length);
     }
     el("analyze-button").innerHTML = "Analyze";
   };
