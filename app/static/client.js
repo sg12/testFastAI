@@ -46,16 +46,18 @@ function analyze() {
   };
   xhr.onload = function(e) {
     if (this.readyState === 4) {
+      alert('ttt');
       var response = JSON.parse(e.target.responseText);
       draw();
       el("result-label").innerHTML = `Result = ${response["result"]}`;
       var array = response["result"];
-      array1 = array.replace('[', '');
-      var array1 = array1.replace('[', '');
-      var array2 = array1.replace(']', '');
-      array2 = array2.replace(']', '');
-      var arr = array2.split(" ");
-      alert(array.length + '-' + array2.length + '-' + arr.length);
+      //array1 = array.replace('[', '');
+      //var array1 = array1.replace('[', '');
+      //var array2 = array1.replace(']', '');
+      //array2 = array2.replace(']', '');
+      //var arr = array2.split(" ");
+      alert(array.length);
+      alert(array);
     }
     el("analyze-button").innerHTML = "Analyze";
   };
