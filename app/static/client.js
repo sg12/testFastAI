@@ -55,24 +55,8 @@ function analyze() {
       var array2 = array1.replace(']', '');
       array2 = array2.replace(']', '');
       var arr = array2.split(" ");
-      try {
-        var number = parseInt(arr[0]);
-        alert(number) ;
-      } catch(e) {
-        alert('error 1');
-      }
-      try {
-        var number = parseInt(arr[1]);
-        alert(number) ;
-      } catch(e) {
-        alert('error 2');
-      }
-      try {
-        var number = parseInt(arr[2]);
-        alert(number) ;
-      } catch(e) {
-        alert('error 3');
-      }
+      alert(arr.length);
+      
     }
     el("analyze-button").innerHTML = "Analyze";
   };
