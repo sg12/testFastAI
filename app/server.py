@@ -85,7 +85,7 @@ async def analyze(request):
     arr = np.asarray(prediction[0])
     #imgMask = Image.fromarray(arr,'L')
     #imgMask.save(path / temp_file_name)
-    return JSONResponse({'result': arr})
+    return JSONResponse({'result': str(arr)})
 
 
 if __name__ == '__main__':
