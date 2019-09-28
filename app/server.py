@@ -66,12 +66,15 @@ async def setup_learner_2():
 loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
 learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
+
+tasks_2 = [asyncio.ensure_future(setup_learner_2())]
+learn_2 = loop.run_until_complete(asyncio.gather(*tasks_2))[0]
 loop.close()
 
-loop_2 = asyncio.get_event_loop()
-tasks_2 = [asyncio.ensure_future(setup_learner_2())]
-learn_2 = loop_2.run_until_complete(asyncio.gather(*tasks_2))[0]
-loop_2.close()
+#loop_2 = asyncio.get_event_loop()
+#tasks_2 = [asyncio.ensure_future(setup_learner_2())]
+#learn_2 = loop_2.run_until_complete(asyncio.gather(*tasks_2))[0]
+#loop_2.close()
 
 
 @app.route('/')
