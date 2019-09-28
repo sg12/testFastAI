@@ -49,6 +49,8 @@ async def setup_learner():
             raise RuntimeError(message)
         else:
             raise
+
+async def setup_learner_2():
     await download_file(export_file_url_2, path / export_file_name_2)
     try:
         learn_2 = load_learner(path, export_file_name_2)
@@ -61,11 +63,15 @@ async def setup_learner():
         else:
             raise
 
-
 loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
 learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
 loop.close()
+
+loop_2 = asyncio.get_event_loop()
+tasks_2 = [asyncio.ensure_future(setup_learner_2())]
+learn_2 = loop_2.run_until_complete(asyncio.gather(*tasks_2))[0]
+loop_2.close()
 
 
 @app.route('/')
@@ -81,7 +87,7 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     
     prediction = learn.predict(img)[1]
-    #learn_2.predict(img)
+    learn_2.predict(img)
     arr = np.asarray(prediction[0])
     #imgMask = Image.fromarray(arr,'L')
     #imgMask.save(path / temp_file_name)
