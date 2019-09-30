@@ -89,13 +89,58 @@ async def analyze(request):
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
     
-    prediction = learn.predict(img)[1]
-    prediction_2 = learn_2.predict(img)[0]
-    arr = np.asarray(prediction[0])
+    img.save('img_temp_test.png')
+    imgItest = Image.open('img_temp_test.png');
+    imgItest = imgItest.resize((64,128), Image.ANTIALIAS)
+    imgItest.save('img_temp_test.png')
+
+    img = open_image('img_temp_test.png')
+    
+    #prediction = learn.predict(img)[1]
+    
+
+    predsSeg = learn.predict(img)
+    h = predsSeg[2][1].shape[0]
+    top = h
+    bottom = 0
+    left = predsSeg[2][1].shape[1]
+    right = 0
+    for i in range(0,h):
+      tensorI = predsSeg[2][1][i]
+      w = tensorI.shape[0]
+      for k in range(0,w):
+        if tensorI[k] > 0.75:
+          if i < top:
+            top = i
+          if i > bottom:
+            bottom = i
+          if k > right:
+            right = k
+          if k < left:
+            left = k
+
+    #bbox = ImageBBox.create(*img.size, [[top,left,bottom,right]], labels=[0], classes=['eye'])
+    #img.show(y=bbox)
+    imTemp = Image.open('img_temp_test.png')
+    imTemp = imTemp.crop((left,top,right,bottom))
+    imTemp = imTemp.resize((148,148))
+    tempImgName = "temp.png"
+    imTemp.save(tempImgName)
+    
+    img = open_image(tempImgName)
+    predsSeg_2 = learnSec.predict(img)
+    
+    
+    
+    
+    
+    #prediction_2 = learn_2.predict(img)[0]
+    #arr = np.asarray(prediction[0])
+    
     #arr2 = np.asarray(prediction_2[0])
     #imgMask = Image.fromarray(arr,'L')
     #imgMask.save(path / temp_file_name)
-    return JSONResponse({'result': str(prediction_2)})
+    return JSONResponse({'result': str(predsSeg_2)})
 
 
 if __name__ == '__main__':
