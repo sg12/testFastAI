@@ -128,7 +128,7 @@ async def analyze(request):
     imTemp.save(tempImgName)
     
     img = open_image(tempImgName)
-    predsSeg_2 = learnSec.predict(img)
+    predsSeg_2 = learn_2.predict(img)
     
     
     
