@@ -128,7 +128,7 @@ async def analyze(request):
     imTemp.save(tempImgName)
     
     img = open_image(tempImgName)
-    predsSeg_2 = learn_2.predict(img)
+    #predsSeg_2 = learn_2.predict(img)
     
     
     
@@ -140,7 +140,7 @@ async def analyze(request):
     #arr2 = np.asarray(prediction_2[0])
     #imgMask = Image.fromarray(arr,'L')
     #imgMask.save(path / temp_file_name)
-    rs = '<p>Top 3 predictions:</p>\n'
+    rs = '<p>Top 3 <b>{mv_dict[predsSeg[0][0]]}</b> predictions:</p>\n'
     result_html = str(rs)
     return HTMLResponse(result_html)
     #return JSONResponse({'result': str(Path(__file__))})
