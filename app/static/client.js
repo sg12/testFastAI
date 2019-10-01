@@ -47,12 +47,13 @@ function analyze() {
   xhr.onload = function(e) {
     if (this.readyState === 4) {
       alert('ttt');
-      var response = JSON.parse(e.target.responseText);
-      alert('ttt1');
+      //var response = JSON.parse(e.target.responseText);
+      var response = e.target.responseText;
+      alert(response);
       draw();
       el("result-label").innerHTML = `Result = ${response["result"]}`;
       alert('ttt2');
-      var array = response["result"];
+      //var array = response["result"];
       //array1 = array.replace('[', '');
       //var array1 = array1.replace('[', '');
       //var array2 = array1.replace(']', '');
