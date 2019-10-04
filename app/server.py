@@ -134,13 +134,16 @@ async def analyze(request):
     
     
     
-    #prediction_2 = learn_2.predict(img)[0]
+    prediction_2 = learn_2.predict(img)[0]
     #arr = np.asarray(prediction[0])
     
-    #arr2 = np.asarray(prediction_2[0])
+    arr2 = np.asarray(prediction_2[0])
+    strResp = "";
+    for i in range(0,arr2.shape[0]):
+        strResp += str(i)
     #imgMask = Image.fromarray(arr,'L')
     #imgMask.save(path / temp_file_name)
-    return JSONResponse({'result': str(Path(__file__))})
+    return JSONResponse({'result': strResp})
 
 
 if __name__ == '__main__':
