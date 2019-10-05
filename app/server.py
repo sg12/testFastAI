@@ -126,24 +126,30 @@ async def analyze(request):
     imTemp = imTemp.resize((148,148))
     tempImgName = "temp.png"
     imTemp.save(tempImgName)
-    
     img = open_image(tempImgName)
-    #predsSeg_2 = learn_2.predict(img)
-    
-    
-    
-    
     
     prediction_2 = learn_2.predict(img)[0]
-    #arr = np.asarray(prediction[0])
     
-    arr2 = np.asarray(prediction_2[0])
-    strResp = "";
-    for i in range(0,arr2.shape[0]):
-        strResp += str(i)
+    pnts = prediction_2
+    yT = 74.0 + 74.0 * float(pnts.data[0][0])
+    xL = 74.0 + 74.0 * float(pnts.data[0][1])
+
+    koeyX = 148.0 / float(right - left)
+    koeyY = 148.0 / float(bottom - top)
+
+    koeyX_row = float(256.0)/ float(64.0)
+    koeyY_row = float(512.0) / float(128.0)
+    yT = ((yT / koeyY) + top) * koeyY_row
+    xL = ((xL / koeyX) + left) * koeyX_row
+    
+    arr2 = np.asarray([yT,xL])    
+    
+    #strResp = "";
+    #for i in range(0,arr2.shape[0]):
+        #strResp += str(i)
     #imgMask = Image.fromarray(arr,'L')
     #imgMask.save(path / temp_file_name)
-    return JSONResponse({'result': strResp})
+    return JSONResponse({'result': str(arr2)})
 
 
 if __name__ == '__main__':
