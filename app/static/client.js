@@ -42,8 +42,8 @@ function analyze() {
       array2 = array2.replace(']', '');
       var arr = array2.split(" ");
       el("result-label").innerHTML = `Result = ${response["result"]}`;
-      el("img2").style.left = arr[0] + "px";
-      el("img2").style.top = arr[1] + "px";
+      el("img2").style.left = arr[1] + "px";
+      el("img2").style.top = arr[0] + "px";
       alert('success!!!');
       //var array = response["result"];
       //array1 = array.replace('[', '');
