@@ -35,7 +35,6 @@ function analyze() {
       //var response = JSON.parse(e.target.responseText);
       var response = e.target.responseText;
       alert(response);
-      draw();
       el("result-label").innerHTML = `Result = ${response["result"]}`;
       el("img2").style.left = "170" + "px";
       el("img2").style.top = "170" + "px";
