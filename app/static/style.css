@@ -77,7 +77,7 @@ button:focus {
     top: 50px;
 }
 .pixel{
-    width:5px;
-    height:5px;
+    width:4px;
+    height:4px;
     display:inline-block;
 }
