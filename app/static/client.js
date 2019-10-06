@@ -37,8 +37,8 @@ function analyze() {
       alert(response);
       draw();
       el("result-label").innerHTML = `Result = ${response["result"]}`;
-      el("img2").style.left = "170" + "px";
-      el('img2').style.top = "170" + "px";
+      el("img2").style.left = "170";
+      el("img2").style.top = "170";
       alert('ttt2');
       //var array = response["result"];
       //array1 = array.replace('[', '');
