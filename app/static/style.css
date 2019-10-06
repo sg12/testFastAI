@@ -63,11 +63,18 @@ button:focus {
     outline: 0;
 }
 
-#img{
-    display:inline-block;
-    width:auto;
-    height:auto;
-   position:relative;
+#container {
+    position: relative;
+}
+#img1 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+#img2 {
+    position: absolute;
+    left: 50px;
+    top: 50px;
 }
 .pixel{
     width:5px;
