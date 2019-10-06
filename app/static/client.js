@@ -31,14 +31,20 @@ function analyze() {
   };
   xhr.onload = function(e) {
     if (this.readyState === 4) {
-      alert('ttt');
-      //var response = JSON.parse(e.target.responseText);
-      var response = e.target.responseText;
-      alert(response);
+      //alert('ttt');
+      var response = JSON.parse(e.target.responseText);
+      //var response = e.target.responseText;
+      //alert(response);
+      var array = response["result"];
+      array1 = array.replace('[', '');
+      var array1 = array1.replace('[', '');
+      var array2 = array1.replace(']', '');
+      array2 = array2.replace(']', '');
+      var arr = array2.split(" ");
       el("result-label").innerHTML = `Result = ${response["result"]}`;
-      el("img2").style.left = "170" + "px";
-      el("img2").style.top = "170" + "px";
-      alert('ttt2');
+      el("img2").style.left = arr[0] + "px";
+      el("img2").style.top = arr[1] + "px";
+      alert('success!!!');
       //var array = response["result"];
       //array1 = array.replace('[', '');
       //var array1 = array1.replace('[', '');
