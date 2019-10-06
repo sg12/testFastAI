@@ -2,21 +2,6 @@ var el = x => document.getElementById(x);
 var imgData={"data":[100,8,10,12,100,100,14,16,14,100,100,18,18,14,100,0,80,0,80,0,13,15,80,18,0],"width":"5","height":"5"};
 var wid=imgData["width"],hgh=imgData["height"],data=imgData["data"];
 
-function draw(){
-  var index=-1;
-  var img=document.getElementById("img");
-  img.innerHTML="";
-  for(var i=0;i<hgh;i++)
-  {
-    for(var j=0;j<wid;j++)
-    {
-      index++;
-      var pix=data[index];
-      img.innerHTML+="<span class='pixel' style='background:rgb("+pix+","+pix+","+pix+");position:absolute;top:"+(i*5)+"px;left:"+(j*5)+"px;'></span>";
-    }
-  }
-}
-
 function showPicker() {
   el("file-input").click();
   
@@ -26,8 +11,8 @@ function showPicked(input) {
   el("upload-label").innerHTML = input.files[0].name;
   var reader = new FileReader();
   reader.onload = function(e) {
-    el("image-picked").src = e.target.result;
-    el("image-picked").className = "";
+    el("img1").src = e.target.result;
+    el("img1").className = "";
   };
   reader.readAsDataURL(input.files[0]);
 }
@@ -61,7 +46,7 @@ function analyze() {
       //var array2 = array1.replace(']', '');
       //array2 = array2.replace(']', '');
       //var arr = array2.split(" ");
-      alert('ttt3');
+      //alert('ttt3');
       //alert(array.length);
       //alert(array);
     }
